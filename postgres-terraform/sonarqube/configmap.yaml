@@ -1,0 +1,21 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sonarqube-configmap
+  labels:
+    app: sonarqube
+data:
+  #SONARQUBE_JDBC_USERNAME: 'awesomedb'
+  SONARQUBE_JDBC_URL: 'jdbc:postgresql://amazinguser:perfectpassword@10.91.2.7:31186/sonar'
+                       #jdbc:postgresql://medium.postgres.database.azure.com/sonar
+  SONARQUBE_JDBC_PASSWORD: 'cGVyZmVjdHBhc3N3b3Jk'
+
+#---
+#apiVersion: v1
+#kind: Secret
+#metadata:
+#  name: postgres
+#type: Opaque
+#data:
+#  password: cGVyZmVjdHBhc3N3b3Jk

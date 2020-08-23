@@ -1,0 +1,67 @@
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: sonar-data-pv
+  labels:
+    app: sonarqube
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain  
+  hostPath:
+    path: "/opt/sonarqube/data"
+    
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: sonar-data-pvc
+  labels:
+    app: sonarqube
+spec:
+  storageClassName: manual
+  capacity:
+  accessModes:
+    - ReadWriteOnce
+  #persistentVolumeReclaimPolicy: Retain  
+  resources:
+    requests:
+      storage: 5Gi       
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: sonar-extensions-pv
+  labels:
+    app: sonarqube
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain  
+  hostPath:
+    path: "/opt/sonarqube/extensions"
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: sonar-extensions-pvc
+  labels:
+    app: sonarqube
+spec:
+  storageClassName: manual
+  capacity:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi   
