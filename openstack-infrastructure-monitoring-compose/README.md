@@ -7,7 +7,7 @@
 ` Installation Script for Node exporter install_node_exporter.sh `
 
 # Clone the Repo
-` git clone https://gitlab.com/empirix-eng/empirix-devops/openstack-infrastructure-monitoring.git `
+` git clone  `
 
 ` cd openstack-infrastructure-monitoring/ `
 
