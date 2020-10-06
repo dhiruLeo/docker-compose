@@ -79,3 +79,21 @@ Replace database creds in [pgsql-cm.yaml]
 
 `\l+ terraform_backend `
 
+`./mc config host add minio-local http://10.91.2.3:31311 AKIAIOSFODNN7EXAMPLE wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY --api S3v4 `
+
+`./mc ls minio-local `
+
+`./mc mb minio-local/pgsql-nfs `
+
+`. ~/bash_profile `
+
+`export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE `
+
+`export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY `
+
+`Restic password: Empirix@123 `
+
+`restic -r s3:http://minio-server-ip:31311/pgsql-nfs init `
+
+`restic -r s3:http://minio-server-ip:31311/pgsql-nfs --verbose backup /var/data/pgsqldumpdata `
+
