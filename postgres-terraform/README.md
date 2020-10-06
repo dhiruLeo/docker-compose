@@ -55,31 +55,27 @@ Replace database creds in [pgsql-cm.yaml]
 
 ` systemctl start nfs-idmap `
 
- ## To Create Database inside running pgsql Pod
-
- ` kubectl exec -it pgsql-terraform-0 -- psql -h node-ip -U amazinguser --password -p nodeport awesomedb `
-
-` sudo -u postgres psql -d terraform_backend `
-
-` createdb terraform_backend `
-
-` CREATE DATABASE terraform_backend; `
-
-` DROP DATABASE terraform_backend; `
-
-## To Interact with pgsql 
-
-` sudo passwd postgres `
-
-` \dt * `
-
-` \l+ terraform_backend `
-
-` terraform workspace list `
-
-` terraform workspace new dhirendra `
 
 ## Initializing Postgres as terraform Backend to store Terraform State Files.
 
- ` terraform init -backend-config='conn_str=postgres://amazinguser:perfectpassword@node-ip:31186/terraform_backend?sslmode=disable' `
+
+`terraform workspace list `
+
+`terraform workspace new dhirendra `
+
+`terraform init -backend-config='conn_str=postgres://amazinguser:perfectpassword@node-ip:31186/terraform_backend?sslmode=disable' `
  
+`kubectl exec -it postgresql-postgresql-0 -- psql -h 10.91.3.57 -U postgres --password -p 30311 postgres `
+
+`sudo -u postgres psql -d terraform_backend `
+
+`CREATE DATABASE sonar; `
+
+`DROP DATABASE terraform_backend; `
+
+`sudo passwd postgres `
+
+`\dt * `
+
+`\l+ terraform_backend `
+
